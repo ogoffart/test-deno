@@ -1,0 +1,35 @@
+# Copyright © SixtyFPS GmbH <info@slint.dev>
+# SPDX-License-Identifier: GPL-3.0-only OR LicenseRef-Slint-Royalty-free-1.1 OR LicenseRef-Slint-commercial
+
+[package]
+name = "slint-node"
+description = "Internal Slint Runtime Library for NodeJS API."
+authors= ["Slint Developers <info@slint.dev>"]
+documentation= "https://slint.dev/docs"
+edition= "2021"
+homepage= "https://slint.dev"
+keywords= ["gui", "toolkit", "graphics", "design", "ui"]
+license= "GPL-3.0-only OR LicenseRef-Slint-Royalty-free-1.1 OR LicenseRef-Slint-commercial"
+repository= "https://github.com/slint-ui/slint"
+rust-version= "1.70"
+version= "1.4.0"
+categories = ["gui", "development-tools"]
+build = "build.rs"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+napi = { version = "2.14.0", default-features = false, features = ["napi8"] }
+napi-derive = "2.14.0"
+i-slint-compiler = { features = ["default"] , git = "https://github.com/slint-ui/slint", rev = "43d1f62fb", version = "=1.4.0", default-features = false }
+i-slint-core = { features = ["default"] , git = "https://github.com/slint-ui/slint", rev = "43d1f62fb", version = "=1.4.0", default-features = false }
+i-slint-backend-selector = { git = "https://github.com/slint-ui/slint", rev = "43d1f62fb", version = "=1.4.0", default-features = false }
+slint-interpreter = { features = ["default", "display-diagnostics", "internal"] , git = "https://github.com/slint-ui/slint", rev = "43d1f62fb", version = "=1.4.0", default_features = false }
+spin_on = "0.1"
+css-color-parser2 = { version = "1.0.1" }
+itertools = { version = "0.12" }
+send_wrapper = { version = "0.6.0" }
+
+[build-dependencies]
+napi-build = "2.1.0"
